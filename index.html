@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>治愈小句子</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            max-width: 500px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            animation: fadeIn 1s;
+        }
+        h1 {
+            font-size: 24px;
+            line-height: 1.6;
+            color: #2c3e50;
+        }
+        .btn {
+            margin-top: 20px;
+            padding: 12px 24px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        .btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="message"></h1>
+        <button class="btn" onclick="showRandomMessage()">换一句</button>
+    </div>
+
+    <script>
+        // 替换为你准备的31句话
+        const messages = [
+            "接水绕工位走一圈，活动 + 放空双丰收～",
+            "戴耳机听白噪音，专注摸鱼不被打扰！",
+            "整理桌面 5 分钟，清爽感 = 心情加分！",
+            "用便签贴可爱图案，工位颜值 up！",
+            "做 3 组深呼吸，压力随气息溜走～",
+            "远眺窗外 2 分钟，缓解眼疲劳 + 放空思绪～",
+            "给绿植浇浇水，治愈感随手可得～",
+            "冻干草莓脆，酸甜解腻，一口唤醒快乐！",
+            "海盐味坚果，解馋不粘手，办公超适配～",
+            "今天的你，已经比昨天更棒啦～",
+            "闭眼冥想 1 分钟，给大脑放个短假～",
+            "拉伸肩颈 3 组，舒缓久坐疲惫感～",
+            "用温水泡杯茶，慢饮放松身心～",
+            "益生菌软糖，Q 弹酸甜，还能护肠道～",
+            "无糖薄荷糖，犯困时一颗，瞬间清醒～",
+            "慢慢来，所有美好都在途中等你～",
+            "你的努力，时光都看在眼里～",
+            "允许自己慢下来，才是生活的智慧～",
+            "写下 3 件小确幸，唤醒生活暖意～",
+            "听一首喜欢的歌，让情绪随旋律释放～",
+            "全麦能量棒，抗饿不发胖，打工人刚需～",
+            "冻干酸奶块，奶香浓郁，甜而不腻～",
+            "陈皮糖，咸甜回甘，解馋还开胃～",
+            "你值得所有温柔与偏爱～",
+            "小情绪会过去，好心情会回来～",
+            "今日份快乐已充值成功！?",
+            "每个小进步都值得被庆祝～??",
+            "你比自己想象的更强大！??",
+            "生活明朗，万物可爱，你也超棒！??",
+            "今天也要做自己的小太阳呀～??"
+        ];
+
+        function showRandomMessage() {
+            const index = Math.floor(Math.random() * messages.length);
+            document.getElementById("message").innerText = messages[index];
+            
+            // 防止页面缓存，确保每次扫码看到新内容
+            history.replaceState(null, '', `?t=${Date.now()}`);
+        }
+
+        // 页面加载时显示第一条消息
+        window.onload = showRandomMessage;
+    </script>
+</body>
+</html>
